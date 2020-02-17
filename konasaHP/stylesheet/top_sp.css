@@ -1,0 +1,25 @@
+@media screen and (max-width:414px){
+  body{
+    background-image: url(top_suma.jpg);
+  }
+  .top{
+    text-align: center;
+    margin-top: 130px ;
+  }
+  .top p{
+    font-family: 'Bookman Old Style';
+    font-size: 40px;
+  }
+  .form{
+    text-align: center;
+    margin-left: 15%;
+  }
+  .form input{
+    float: left;
+    margin-top: 90px;
+    margin-left: 20px;
+    width: 110px;
+    padding: 15px 5px;
+    border-radius: 4px;
+  }
+}

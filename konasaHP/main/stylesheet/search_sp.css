@@ -1,0 +1,31 @@
+@media screen and (max-width:414px){
+  .main{
+    text-align: center;
+  }
+  .mainname{
+    margin-top: 40px;
+    margin-bottom: 150px;
+    font-family: 'Bookman Old Style';
+    font-size: 23px;
+    font-weight: bold;
+  }
+  .select{
+    width: 60%;
+    margin: 15px auto;
+    border: solid 1px silver;
+    margin-bottom: 40px;
+  }
+  .select select{
+    width: 100%;
+  }
+  .button{
+    margin-top: 150px;
+  }
+  .fas{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 120%;
+    color: white;
+  }
+}

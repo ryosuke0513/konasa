@@ -1,0 +1,47 @@
+@media screen and (max-width:414px){
+  .top{
+    padding-top: 25px;
+  }
+  .top_p{
+    border-bottom: solid 3px silver;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Bookman Old Style';
+    font-size: 23px;
+    width: 70%;
+    margin-left: 14%;
+  }
+  .mymain{
+    margin-left: 60px;
+    margin-right: 60px;
+    font-size: 15px;
+    font-weight: bolder;
+    line-height: 2;
+    font-family: 'Bookman Old Style';
+    word-wrap: break-word;
+  }
+  .form{
+    margin-top: 100px;
+    text-align: center;
+  }
+  .form input{
+    color:white;
+    margin: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: .4s;
+  }
+  .proimg{
+    width: 40%;
+    height: auto;
+    margin-left: 36%;
+  }
+  .proimg img{
+    border-radius: 50%;
+  }
+  .fas{
+    font-size:120%
+  }
+}

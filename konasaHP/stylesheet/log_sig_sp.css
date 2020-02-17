@@ -1,0 +1,33 @@
+@media screen and (max-width:414px){
+  .log_sig_top{
+    margin-left: 15px;
+  }
+  .log_sig_top p {
+    font-size: 35px;
+    font-family: Comfortaa;
+  }
+  .form{
+    text-align: center;
+    margin-top: 90px;
+  }
+  .form input{
+    width: 80%;
+  }
+  .sou{
+    height: 52px;
+    border: solid 2px black;
+    margin-bottom: 7px;
+    font-size: 18px;
+  }
+  .sou::placeholder{
+    font-size: 15px
+  }
+  .button{
+    height: 52px;
+    font-size: 15px;
+    border: solid 1px black;
+    margin-bottom: 3px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+}
