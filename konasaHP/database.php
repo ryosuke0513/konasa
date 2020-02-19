@@ -12,7 +12,7 @@ echo "DBerror:".$e->getMessage();
 }
 // ログイン処理
 function login($email, $password){
-  $dbh = new PDO('mysql:dbname=konasa;host=localhost;charset=utf8','tensuke0513','ryosuke0513');
+  $dbh = new PDO('mysql:dbname=heroku_52db3e9eb6b3150;host=us-cdbr-iron-east-04.cleardb.net;charset=utf8','bb3752587a7146','183858ec',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
   $sql = "SELECT *  FROM user_id  WHERE email = :email AND  password = :password";
   $stt = $dbh->prepare($sql);
   $stt->bindValue(':email', $email);
@@ -29,7 +29,7 @@ function login($email, $password){
 }
 // ログイン認証
 function authCheck($email, $password){
-  $dbh = new PDO('mysql:dbname=konasa;host=localhost;charset=utf8','tensuke0513','ryosuke0513');
+  $dbh = new PDO('mysql:dbname=heroku_52db3e9eb6b3150;host=us-cdbr-iron-east-04.cleardb.net;charset=utf8','bb3752587a7146','183858ec',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
   $sql = "SELECT * FROM user_id WHERE email = :email AND password = :password ";
   $stt = $dbh->prepare($sql);
   $stt->bindValue(':email', $email);
