@@ -7,7 +7,7 @@ require_once('../database.php');
 //session_save_path("/Applications/MAMP/tmp/php");
 //session_start();
 
-require '/vendor/autoload.php';
+require_once dirname(__FILE__).'/../../vendor/autoload.php';
 
 $errorMessage='';
 $i=$_POST["member_profile"];

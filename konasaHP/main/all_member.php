@@ -4,7 +4,7 @@ ini_set('error_reporting', E_ALL);
 
 require_once('../database.php');
 
-require '/vendor/autoload.php';
+require_once dirname(__FILE__).'/../../vendor/autoload.php';
 
 //session_save_path("/Applications/MAMP/tmp/php");
 //session_start();

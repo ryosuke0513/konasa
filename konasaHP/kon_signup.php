@@ -5,7 +5,7 @@ session_start();
 require_once('database.php'); // データベースアクセスファイル読み込み
 require_once('auth.php'); // ログイン認証ファイル読み込み
 
-require '../vendor/autoload.php';
+require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 $errorMessage='';
 $email='';
