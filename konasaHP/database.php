@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 
-require '../vendor/composer/autoload.php';
+require '../vendor/autoload.php';
 
 //DB接続処理
 function dbConnect(){
