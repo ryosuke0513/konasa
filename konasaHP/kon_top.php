@@ -1,9 +1,6 @@
 <?php
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
-use Aws\S3\S3Client;
-
-use Aws\Exception\AwsException;
 ?>
 <!DOCTYPE html>
 <html lang="ja">

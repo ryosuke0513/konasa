@@ -37,6 +37,8 @@ while($row=$stt->fetch()){
   $errorMessage="登録してください";
 }
 
+echo $result['proimg'];
+
 $imgname=$result['proimg'];
 $img_dir='../photo/'.$imgname;
 
