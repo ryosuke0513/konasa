@@ -1,6 +1,6 @@
 <?php
 session_save_path("/Applications/MAMP/tmp/php");
-require '/vendor/autoload.php';
+require '../vendor/autoload.php';
 session_start();
 require_once('database.php'); // データベースアクセスファイル読み込み
 require_once('auth.php'); // ログイン認証ファイル読み込み

@@ -1,6 +1,6 @@
 <?php
 
-require '/vendor/autoload.php';
+require '../vendor/autoload.php';
 
 require_once('database.php');
 // セッションにアカウント情報がある場合
