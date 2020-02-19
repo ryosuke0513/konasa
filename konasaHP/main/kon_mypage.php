@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 
+require_once('../database.php');
+
 require '/vendor/autoload.php';
 
 //session_save_path("/Applications/MAMP/tmp/php");
@@ -14,7 +16,7 @@ $errorMessage='';
 $info=$_SESSION['account']['email'];
 
 try{
-$dbh=new PDO('mysql:dbname=heroku_52db3e9eb6b3150;host=us-cdbr-iron-east-04.cleardb.net;charset=utf8','bb3752587a7146','183858ec',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$dbh=dbConnect();
 }catch(PDOException $e){
 echo "DBerror:".$e->getMessage();
 }
