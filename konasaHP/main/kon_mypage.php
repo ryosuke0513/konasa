@@ -39,10 +39,16 @@ while($row=$stt->fetch()){
   $errorMessage="登録してください";
 }
 
-echo $result['proimg'];
+//echo $result['proimg'];
 
 $imgname=$result['proimg'];
-$img_dir='../photo/'.$imgname;
+$finfo    = finfo_open(FILEINFO_MIME_TYPE);
+$mimeType = finfo_buffer($finfo, $DB_PIC);
+finfo_close($finfo);
+
+header('Content-Type: ' . $mimeType);
+echo $DB_PIC;
+//$img_dir='../photo/'.$imgname;
 
 $file = $img_dir;
 $size_set_file='size_set'.$imgname;

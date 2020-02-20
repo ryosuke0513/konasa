@@ -25,15 +25,13 @@ echo "DBerror:".$e->getMessage();
 if( !empty($_FILES['proimg']['tmp_name']) ) {
   $fname = file_get_contents($_FILES['proimg']['tmp_name']);
 
-  echo $fname;
-
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
   $stt->bindValue(':proimg',$fname);
   $stt->bindValue(':email',$info);
   $stt->execute();
 
-  //header("Location:kon_mypage.php");
+  header("Location:kon_mypage.php");
 
 	} else {
 		$errorMessage='画像データの保存に失敗しました';
