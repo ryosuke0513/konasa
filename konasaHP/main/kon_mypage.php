@@ -43,11 +43,11 @@ while($row=$stt->fetch()){
 
 $imgname=$result['proimg'];
 $finfo    = finfo_open(FILEINFO_MIME_TYPE);
-$mimeType = finfo_buffer($finfo, $DB_PIC);
+$mimeType = finfo_buffer($finfo, $imgname);
 finfo_close($finfo);
 
-header('Content-Type: ' . $mimeType);
-echo $DB_PIC;
+//header('Content-Type: ' . $mimeType);
+echo $imgname;
 //$img_dir='../photo/'.$imgname;
 
 $file = $img_dir;
