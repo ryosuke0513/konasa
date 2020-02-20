@@ -18,15 +18,12 @@ $dbh=dbConnect();
 echo "DBerror:".$e->getMessage();
 }
 
-// ファイルへのパス
-$path = '../photo/';
 
 // ファイルがアップロードされているかと、POST通信でアップロードされたかを確認
-if( !empty($_FILES['proimg']['tmp_name']) && is_uploaded_file($_FILES['proimg']['tmp_name']) ) {
-  $photoname=file_get_contents($_FILES['upfile']['tmp_name']);
-  $date = getdate();
-  $fname = $_FILES["upfile"]["tmp_name"].$date["year"].$date["mon"].$date["mday"].$date["hours"].$date["minutes"].$date["seconds"];
-  $fname = hash("sha256", $fname);
+if( !empty($_FILES['proimg']['tmp_name']) ) {
+  $fname = fopen($_FILES['upimg']['tmp_name'], "rb");
+  $img = fread($fp, filesize($_FILES['upimg']['tmp_name']));
+  fclose($fp);
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
@@ -34,13 +31,11 @@ if( !empty($_FILES['proimg']['tmp_name']) && is_uploaded_file($_FILES['proimg'][
   $stt->bindValue(':email',$info);
   $stt->execute();
 
-	// ファイルを指定したパスへ保存する
-	if( move_uploaded_file( $_FILES['proimg']['tmp_name'], $path.$photoname) ) {
-		header("Location:kon_mypage.php");
+  header("Location:kon_mypage.php");
+
 	} else {
 		echo 'アップロードされたファイルの保存に失敗しました。';
 	}
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
