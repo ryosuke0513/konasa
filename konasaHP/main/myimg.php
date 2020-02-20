@@ -56,13 +56,13 @@ if( !empty($_FILES['proimg']['tmp_name']) ) {
 
   //圧縮率60で保存する
 
-  ob_start();
+  //ob_start();
   imagejpeg($thumbnail, $size_set_file, 60);
-  $imageData = ob_get_contents();
-  ob_end_clean();
+  //$imageData = ob_get_contents();
+  //ob_end_clean();
 
 
-  $fname = base64_encode($imageData);
+  $fname = base64_encode(file_get_contents($size_set_file));
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
