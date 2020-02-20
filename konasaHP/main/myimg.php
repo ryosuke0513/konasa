@@ -55,10 +55,14 @@ if( !empty($_FILES['proimg']['tmp_name']) ) {
   imagecopyresampled($thumbnail, $baseImage, 0, 0, 0, 0, $thumbW, $thumbH, $diffW, $diffH);
 
   //圧縮率60で保存する
+
+  ob_start();
   imagejpeg($thumbnail, $size_set_file, 60);
+  $imageData = ob_get_contents();
+  ob_end_clean();
 
 
-  $fname = base64_encode(file_get_contents($size_set_file));
+  $fname = base64_encode($imageData);
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
