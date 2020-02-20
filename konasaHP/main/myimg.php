@@ -24,10 +24,10 @@ echo "DBerror:".$e->getMessage();
 // ファイルがアップロードされているかと、POST通信でアップロードされたかを確認
 if( !empty($_FILES['proimg']['tmp_name']) ) {
   $filename=$_FILES['proimg']['name'];
-
+  $ffname=$_FILES['proimg']['tmp_name'];
   $size_set_file='size_set'.$filename;
 
-  list($w, $h) = getimagesize($filename);
+  list($w, $h) = getimagesize($ffname);
 
   //元画像の縦横の大きさを比べてどちらかにあわせる
   if($w > $h){
@@ -49,7 +49,7 @@ if( !empty($_FILES['proimg']['tmp_name']) ) {
   $thumbnail = imagecreatetruecolor($thumbW, $thumbH);
 
   //元の画像を読み込む
-  $baseImage = imagecreatefromjpeg($filename);
+  $baseImage = imagecreatefromjpeg($ffname);
 
   //サムネイルになる土台の画像に合わせて元の画像を縮小しコピーペーストする
   imagecopyresampled($thumbnail, $baseImage, 0, 0, 0, 0, $thumbW, $thumbH, $diffW, $diffH);
