@@ -39,7 +39,7 @@ while($row=$stt->fetch()){
   $errorMessage="登録してください";
 }
 
-$size_set_file='data:jpeg;base64,'.$result['proimg'];
+$size_set_file='data:image/jpeg;base64,'.$result['proimg'];
 
 //$imgname=$result['proimg'];
 //$finfo    = finfo_open(FILEINFO_MIME_TYPE);
