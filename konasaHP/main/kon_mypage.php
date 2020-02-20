@@ -15,6 +15,8 @@ $imgname='';
 $errorMessage='';
 $info=$_SESSION['account']['email'];
 
+echo $info;
+
 try{
 $dbh=dbConnect();
 }catch(PDOException $e){
