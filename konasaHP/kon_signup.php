@@ -13,11 +13,9 @@ $password='';
 
 if (isset($_POST['signup'])) {
   if(!empty($_POST['email']) && !empty($_POST['password'])){
-    try{
+
     $dbh=dbConnect();
-    }catch(PDOException $e){
-    echo "DBerror:".$e->getMessage();
-    }
+    
     $email=$_POST['email'];
     $password=$_POST['password'];
 
