@@ -23,7 +23,7 @@ echo "DBerror:".$e->getMessage();
 
 // ファイルがアップロードされているかと、POST通信でアップロードされたかを確認
 if( !empty($_FILES['proimg']['tmp_name']) ) {
-  $fname = file_get_contents($_FILES['proimg']['tmp_name']);
+  $fname = base64_encode(file_get_contents($_FILES['proimg']['tmp_name']));
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);

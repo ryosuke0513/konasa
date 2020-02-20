@@ -47,13 +47,13 @@ $mimeType = finfo_buffer($finfo, $imgname);
 finfo_close($finfo);
 
 //header('Content-Type: ' . $mimeType);
-echo $mimeType;
+//echo $mimeType;
 //$img_dir='../photo/'.$imgname;
 
-$file = $img_dir;
-$size_set_file='size_set'.$imgname;
+//$file = $img_dir;
+//$size_set_file='size_set'.$imgname;
 //元の画像のサイズを取得する
-list($w, $h) = getimagesize($file);
+list($w, $h) = getimagesize($mimeType);
 
 //元画像の縦横の大きさを比べてどちらかにあわせる
 if($w > $h){
