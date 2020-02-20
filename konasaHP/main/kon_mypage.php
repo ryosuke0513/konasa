@@ -39,7 +39,7 @@ while($row=$stt->fetch()){
   $errorMessage="登録してください";
 }
 
-$size_set_file='data:image/jpeg;base64,'.$result['proimg'];
+$size_set_file=$result['proimg'];
 
 //$imgname=$result['proimg'];
 //$finfo    = finfo_open(FILEINFO_MIME_TYPE);
@@ -68,7 +68,7 @@ $size_set_file='data:image/jpeg;base64,'.$result['proimg'];
 <body>
   <div class="top">
     <div class="proimg">
-      <p><?php echo"<img src='$size_set_file')>";?></p>
+      <p><img src="data:image/png;base64,<?php echo base64_encode($size_set_file);?>"></p>
     </div>
     <p class="top_p" style="padding-bottom:20px;"></p>
     <div class="mymain">
