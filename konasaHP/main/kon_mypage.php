@@ -47,7 +47,7 @@ $mimeType = finfo_buffer($finfo, $imgname);
 finfo_close($finfo);
 
 //header('Content-Type: ' . $mimeType);
-echo $imgname;
+echo $mimeType;
 //$img_dir='../photo/'.$imgname;
 
 $file = $img_dir;
