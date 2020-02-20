@@ -58,7 +58,7 @@ if( !empty($_FILES['proimg']['tmp_name']) ) {
   imagejpeg($thumbnail, $size_set_file, 60);
 
 
-  $fname = base64_encode(file_get_contents($_size_set_file));
+  $fname = base64_encode(file_get_contents($size_set_file));
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
