@@ -26,7 +26,7 @@ echo "DBerror:".$e->getMessage();
 //$path='photo/';
 //$photoname='';
 //$photomessage='';
-
+echo $info;
 
 if(isset($_POST['confirm'])){
    if(!empty($_POST['name'])&&!empty($_POST['email'])&&!empty($_POST['work'])&&!empty($_POST['skill'])&&!empty($_POST['assist'])&&!empty($_POST['support'])){
