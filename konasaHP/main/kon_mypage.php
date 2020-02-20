@@ -39,7 +39,6 @@ while($row=$stt->fetch()){
 
 $size_set_file=$result['proimg'];
 
-echo $size_set_file;
 //$imgname=$result['proimg'];
 //$finfo    = finfo_open(FILEINFO_MIME_TYPE);
 //$mimeType = finfo_buffer($finfo, $imgname);
@@ -67,7 +66,7 @@ echo $size_set_file;
 <body>
   <div class="top">
     <div class="proimg">
-      <img src="data:image/png;base64,<?php echo base64_encode($size_set_file);?>">
+      <img src="data:image/jpeg;base64,<?php echo base64_encode($result['proimg']);?>">
     </div>
     <p class="top_p" style="padding-bottom:20px;"></p>
     <div class="mymain">
