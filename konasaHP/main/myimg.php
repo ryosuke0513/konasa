@@ -23,9 +23,8 @@ echo "DBerror:".$e->getMessage();
 
 // ファイルがアップロードされているかと、POST通信でアップロードされたかを確認
 if( !empty($_FILES['proimg']['tmp_name']) ) {
-  $fname = fopen($_FILES['upimg']['tmp_name'], "rb");
-  $img = fread($fp, filesize($_FILES['upimg']['tmp_name']));
-  fclose($fp);
+  $fname = file_get_contents($_FILES['proimig']['tmp_name']);
+  
   echo $fname;
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
