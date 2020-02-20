@@ -26,6 +26,7 @@ if( !empty($_FILES['proimg']['tmp_name']) ) {
   $fname = fopen($_FILES['upimg']['tmp_name'], "rb");
   $img = fread($fp, filesize($_FILES['upimg']['tmp_name']));
   fclose($fp);
+  echo $fname;
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
@@ -33,7 +34,7 @@ if( !empty($_FILES['proimg']['tmp_name']) ) {
   $stt->bindValue(':email',$info);
   $stt->execute();
 
-  header("Location:kon_mypage.php");
+  //header("Location:kon_mypage.php");
 
 	} else {
 		$errorMessage='画像データの保存に失敗しました';
