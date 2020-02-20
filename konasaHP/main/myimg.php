@@ -62,7 +62,7 @@ if( !empty($_FILES['proimg']['tmp_name']) ) {
   ob_end_clean();
 
 
-  $fname = base64_encode(file_get_contents($imageData);
+  $fname = base64_encode($imageData);
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
