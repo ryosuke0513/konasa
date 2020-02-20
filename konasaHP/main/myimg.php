@@ -20,11 +20,14 @@ $path = '../photo/';
 
 // ファイルがアップロードされているかと、POST通信でアップロードされたかを確認
 if( !empty($_FILES['proimg']['tmp_name']) && is_uploaded_file($_FILES['proimg']['tmp_name']) ) {
-  $photoname=$_FILES['proimg']['name'].$photoinfo;
+  $photoname=file_get_contents($_FILES['upfile']['tmp_name']);
+  $date = getdate();
+  $fname = $_FILES["upfile"]["tmp_name"].$date["year"].$date["mon"].$date["mday"].$date["hours"].$date["minutes"].$date["seconds"];
+  $fname = hash("sha256", $fname);
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
-  $stt->bindValue(':proimg',$photoname);
+  $stt->bindValue(':proimg',$fname);
   $stt->bindValue(':email',$info);
   $stt->execute();
 
