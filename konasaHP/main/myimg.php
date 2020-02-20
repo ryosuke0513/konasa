@@ -9,6 +9,8 @@ require_once dirname(__FILE__).'/../../vendor/autoload.php';
 
 require_once('../database.php');
 
+$errorMessage='';
+
 $photoinfo=$_SESSION['account']['password'].'.jpg';
 $info=$_SESSION['account']['email'];
 
@@ -34,7 +36,7 @@ if( !empty($_FILES['proimg']['tmp_name']) ) {
   header("Location:kon_mypage.php");
 
 	} else {
-		echo 'アップロードされたファイルの保存に失敗しました。';
+		$errorMessage='画像データの保存に失敗しました';
 	}
 ?>
 <!DOCTYPE html>
