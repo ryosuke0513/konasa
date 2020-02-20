@@ -1,7 +1,12 @@
 <?php
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
-//session_start();
+
+require_once('database.php');
+
+if(!isset($_SESSION)){
+session_start();
+}
 
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
