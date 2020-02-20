@@ -39,12 +39,12 @@ while($row=$stt->fetch()){
   $errorMessage="登録してください";
 }
 
-//echo $result['proimg'];
+$size_set_file=$result['proimg'];
 
-$imgname=$result['proimg'];
-$finfo    = finfo_open(FILEINFO_MIME_TYPE);
-$mimeType = finfo_buffer($finfo, $imgname);
-finfo_close($finfo);
+//$imgname=$result['proimg'];
+//$finfo    = finfo_open(FILEINFO_MIME_TYPE);
+//$mimeType = finfo_buffer($finfo, $imgname);
+//finfo_close($finfo);
 
 //header('Content-Type: ' . $mimeType);
 //echo $mimeType;
@@ -52,36 +52,6 @@ finfo_close($finfo);
 
 //$file = $img_dir;
 //$size_set_file='size_set'.$imgname;
-//元の画像のサイズを取得する
-list($w, $h) = getimagesize($mimeType);
-
-//元画像の縦横の大きさを比べてどちらかにあわせる
-if($w > $h){
-    $diffW = $h;
-    $diffH = $h;
-}elseif($w < $h){
-    $diffW = $w;
-    $diffH = $w;
-}elseif($w === $h){
-    $diffW = $w;
-    $diffH = $h;
-}
-
-//サムネイルのサイズ
-$thumbW = 120;
-$thumbH = 120;
-
-//サムネイルになる土台の画像を作る
-$thumbnail = imagecreatetruecolor($thumbW, $thumbH);
-
-//元の画像を読み込む
-$baseImage = imagecreatefromjpeg($file);
-
-//サムネイルになる土台の画像に合わせて元の画像を縮小しコピーペーストする
-imagecopyresampled($thumbnail, $baseImage, 0, 0, 0, 0, $thumbW, $thumbH, $diffW, $diffH);
-
-//圧縮率60で保存する
-imagejpeg($thumbnail, $size_set_file, 60);
 
 ?>
 

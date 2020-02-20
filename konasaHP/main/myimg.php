@@ -23,7 +23,42 @@ echo "DBerror:".$e->getMessage();
 
 // ファイルがアップロードされているかと、POST通信でアップロードされたかを確認
 if( !empty($_FILES['proimg']['tmp_name']) ) {
-  $fname = base64_encode(file_get_contents($_FILES['proimg']['tmp_name']));
+  $filename=$_FILES['proimg']['name'];
+
+  $size_set_file='size_set'.$filename;
+
+  list($w, $h) = getimagesize($filename);
+
+  //元画像の縦横の大きさを比べてどちらかにあわせる
+  if($w > $h){
+      $diffW = $h;
+      $diffH = $h;
+  }elseif($w < $h){
+      $diffW = $w;
+      $diffH = $w;
+  }elseif($w === $h){
+      $diffW = $w;
+      $diffH = $h;
+  }
+
+  //サムネイルのサイズ
+  $thumbW = 120;
+  $thumbH = 120;
+
+  //サムネイルになる土台の画像を作る
+  $thumbnail = imagecreatetruecolor($thumbW, $thumbH);
+
+  //元の画像を読み込む
+  $baseImage = imagecreatefromjpeg($filename);
+
+  //サムネイルになる土台の画像に合わせて元の画像を縮小しコピーペーストする
+  imagecopyresampled($thumbnail, $baseImage, 0, 0, 0, 0, $thumbW, $thumbH, $diffW, $diffH);
+
+  //圧縮率60で保存する
+  imagejpeg($thumbnail, $size_set_file, 60);
+
+
+  $fname = base64_encode(file_get_contents($_size_set_file));
 
   $sql="UPDATE user_profile SET proimg = :proimg WHERE email = :email;";
   $stt=$dbh->prepare($sql);
