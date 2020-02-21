@@ -27,6 +27,7 @@ while($row=$stt->fetch()){
   $result['skill'] = $row['skill'];
   $result['assist'] = $row['assist'];
   $result['support'] = $row['support'];
+  $result['proimg'] = $row['proimg'];
 }if(empty($result)){
   $errorMessage="";
 }
@@ -36,7 +37,7 @@ while($row=$stt->fetch()){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>メンバーリスト</title>
+  <title>member_page</title>
   <link rel="stylesheet" type="text/css" href="stylesheet/mypage_sp.css">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>

@@ -37,9 +37,9 @@ while($row=$stt->fetch()){
   $errorMessage="登録してください";
 }
 
-$size_set_file=$result['proimg'];
+//$size_set_file=$result['proimg'];
 
-$ga=''
+//$ga=''
 //$imgname=$result['proimg'];
 //$finfo    = finfo_open(FILEINFO_MIME_TYPE);
 //$mimeType = finfo_buffer($finfo, $imgname);
