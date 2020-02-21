@@ -35,7 +35,7 @@ $res = $sth->fetchAll(PDO::FETCH_ASSOC);
    <div class="list">
      <?php foreach($res as $value): ?>
        <form class="listform" action="member_page.php" method="post">
-         <?php if(!empty($value['proimg'])){echo '<p><img src="data:image/jpeg;base64,<?php echo $result['proimg'];?>"></p>';}else{echo '<p><img src="S__45850670.jpg"></p>';}?>
+         <?php if(!empty($value['proimg'])){echo '<p><img src="data:image/jpeg;base64,'.$value['proimg'].'"></p>';}else{echo '<p><img src="S__45850670.jpg"></p>';}?>
          <input type="hidden" name="member_profile" value="<?=$value['name']?>">
          <input class="name" type="submit" value="<?=$value['name']?>"><br>
        </form>
